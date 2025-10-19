@@ -1,4 +1,5 @@
 import request from "../utils/request";
+import { BaseUserInfo, LoginResponseData } from "../types/user";
 
 // 定义接口返回类型
 export interface CaptchaResponse {
@@ -21,11 +22,10 @@ export interface LoginParams {
 export interface LoginResponse {
   code: number;
   message: string;
-  data: {
-    token: string;
-    // 可以根据实际情况添加其他字段
-  };
+  data: LoginResponseData;
 }
+
+//当前用户信息
 
 /**
  * 获取验证码

@@ -128,7 +128,7 @@ export const login = async (req: Request, res: Response) => {
       message: "登录成功",
       data: {
         token,
-        userInfo: {
+        logInfo: {
           id: user.id,
           username: user.username,
           name: user.name,

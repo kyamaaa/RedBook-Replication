@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import useUserStore from "../../modules/user";
 // 2. 导入服务层类型（确保类型安全）
 import { LoginParams } from "../../services/login";
+import { CompleteUserInfo } from "../../types/user";
 
 interface LoginModalProps {
   isOpen: boolean; // 是否显示弹窗
@@ -173,6 +174,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
         captcha: code, // 用户输入的验证码
         captchaKey: captchaKey,
       };
+      console.log("📤 发起登录请求，参数：", loginParams); // 验证4：打印请求参数
 
       // 调用 Zustand 的登录方法（对接后端接口）
       await loginAction(loginParams);
@@ -183,8 +185,19 @@ const LoginModal: React.FC<LoginModalProps> = ({
         onClose(); // 关闭登录弹窗
       }
     } catch (err: any) {
-      // 错误信息已在 useUserStore 中处理，这里补充前端提示
-      alert(error || "登录失败，请检查信息后重试");
+      if (err.message && err.message.includes("获取用户信息")) {
+        // 获取用户信息失败的专门错误处理
+        console.error("❌ 登录流程中获取用户信息失败:", err);
+        alert("登录成功，但获取用户信息失败，请稍后重试");
+      } else {
+        // 登录接口本身的错误
+        const errorMessage =
+          err?.message ||
+          err?.response?.data?.message ||
+          "登录失败，请检查信息后重试";
+        console.error("❌ 登录接口失败:", err);
+        alert(errorMessage);
+      }
     }
   };
 

@@ -1,9 +1,11 @@
 import express from "express";
+import dotenv from "dotenv";
+
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import dotenv from "dotenv";
 import authRoutes from "./routes/auth";
+import userRoutes from "./routes/user";
 
 dotenv.config();
 
@@ -24,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // 路由
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
 
 // 健康检查
 app.get("/health", (req, res) => {
