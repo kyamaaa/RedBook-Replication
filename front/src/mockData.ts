@@ -8,8 +8,8 @@ export const mockPosts: Post[] = [
     content: "到欧洲以后第一次知道的事",
     author: "贾斯博Jasper",
     likes: 1000,
-    imageUrl: "https://picsum.photos/300/400?random=1",
-    category: "travel", // 旅行
+    imageUrl: "https://picsum.photos/400/500?random=1", // 4:5 竖图
+    category: "travel",
   },
   {
     id: 2,
@@ -17,8 +17,8 @@ export const mockPosts: Post[] = [
     content: "分享国外经历",
     author: "StevenOO",
     likes: 1000,
-    imageUrl: "https://picsum.photos/300/400?random=2",
-    category: "travel", // 旅行
+    imageUrl: "https://picsum.photos/400/300?random=2", // 4:3 横图
+    category: "travel",
   },
   {
     id: 3,
@@ -26,8 +26,8 @@ export const mockPosts: Post[] = [
     content: "美妆小技巧",
     author: "Enndme",
     likes: 1000,
-    imageUrl: "https://picsum.photos/300/400?random=3",
-    category: "makeup", // 彩妆
+    imageUrl: "https://picsum.photos/300/400?random=3", // 3:4 竖图
+    category: "makeup",
   },
   {
     id: 4,
@@ -35,8 +35,8 @@ export const mockPosts: Post[] = [
     content: "中古风隐形风扇灯",
     author: "大米的家装模版",
     likes: 1000,
-    imageUrl: "https://picsum.photos/300/400?random=4",
-    category: "home", // 家居
+    imageUrl: "https://picsum.photos/400/500?random=4", // 4:5 竖图
+    category: "home",
   },
   {
     id: 5,
@@ -44,8 +44,8 @@ export const mockPosts: Post[] = [
     content: "猫咪日常",
     author: "JOJO小咪弟",
     likes: 1000,
-    imageUrl: "https://picsum.photos/300/400?random=5",
-    category: "recommend", // 推荐（通用内容）
+    imageUrl: "https://picsum.photos/400/300?random=5", // 4:3 横图
+    category: "recommend",
   },
   {
     id: 6,
@@ -53,8 +53,8 @@ export const mockPosts: Post[] = [
     content: "游戏解说",
     author: "生生游戏解说",
     likes: 10,
-    imageUrl: "https://picsum.photos/400/300?random=6",
-    category: "game", // 游戏
+    imageUrl: "https://picsum.photos/300/400?random=6", // 3:4 竖图
+    category: "game",
   },
   {
     id: 7,
@@ -62,8 +62,8 @@ export const mockPosts: Post[] = [
     content: "美食分享",
     author: "某某美食家",
     likes: 500,
-    imageUrl: "https://picsum.photos/400/300?random=7",
-    category: "food", // 美食
+    imageUrl: "https://picsum.photos/400/500?random=7", // 4:5 竖图
+    category: "food",
   },
   {
     id: 8,
@@ -71,8 +71,8 @@ export const mockPosts: Post[] = [
     content: "旅行季中超利索",
     author: "校园君",
     likes: 800,
-    imageUrl: "https://picsum.photos/400/300?random=8",
-    category: "recommend", // 推荐（通用内容）
+    imageUrl: "https://picsum.photos/400/300?random=8", // 4:3 横图
+    category: "recommend",
   },
   {
     id: 9,
@@ -80,8 +80,8 @@ export const mockPosts: Post[] = [
     content: "妆容分享",
     author: "Anns灵感妆",
     likes: 1200,
-    imageUrl: "https://picsum.photos/400/300?random=9",
-    category: "makeup", // 彩妆
+    imageUrl: "https://picsum.photos/300/400?random=9", // 3:4 竖图
+    category: "makeup",
   },
   // recommend分类 (15条)
   {
@@ -90,7 +90,7 @@ export const mockPosts: Post[] = [
     content: "提升幸福感的实用单品",
     author: "生活家小A",
     likes: 5600,
-    imageUrl: "https://picsum.photos/400/300?random=10",
+    imageUrl: "https://picsum.photos/400/500?random=10", // 4:5 竖图
     category: "recommend",
   },
   {
@@ -99,7 +99,7 @@ export const mockPosts: Post[] = [
     content: "15分钟恢复满满能量",
     author: "效率达人",
     likes: 3200,
-    imageUrl: "https://picsum.photos/400/300?random=11",
+    imageUrl: "https://picsum.photos/400/300?random=11", // 4:3 横图
     category: "recommend",
   },
   {
@@ -108,7 +108,7 @@ export const mockPosts: Post[] = [
     content: "从0开始学习资产管理",
     author: "财商教练",
     likes: 4100,
-    imageUrl: "https://picsum.photos/400/300?random=12",
+    imageUrl: "https://picsum.photos/300/400?random=12", // 3:4 竖图
     category: "recommend",
   },
   {
@@ -117,7 +117,7 @@ export const mockPosts: Post[] = [
     content: "5部让人内心平静的佳作",
     author: "影视迷",
     likes: 2800,
-    imageUrl: "https://picsum.photos/400/300?random=13",
+    imageUrl: "https://picsum.photos/400/500?random=13", // 4:5 竖图
     category: "recommend",
   },
   {
@@ -126,7 +126,7 @@ export const mockPosts: Post[] = [
     content: "坚持一个月就能看到变化",
     author: "礼仪老师",
     likes: 6300,
-    imageUrl: "https://picsum.photos/400/300?random=14",
+    imageUrl: "https://picsum.photos/400/300?random=14", // 4:3 横图
     category: "recommend",
   },
   {
@@ -135,7 +135,7 @@ export const mockPosts: Post[] = [
     content: "利用碎片时间增加收入",
     author: "斜杠青年",
     likes: 7200,
-    imageUrl: "https://picsum.photos/400/300?random=15",
+    imageUrl: "https://picsum.photos/300/400?random=15", // 3:4 竖图
     category: "recommend",
   },
   {
@@ -144,7 +144,7 @@ export const mockPosts: Post[] = [
     content: "告别蚊虫烦恼的实用方法",
     author: "生活小妙招",
     likes: 3500,
-    imageUrl: "https://picsum.photos/400/300?random=16",
+    imageUrl: "https://picsum.photos/400/500?random=16", // 4:5 竖图
     category: "recommend",
   },
   {
@@ -153,7 +153,7 @@ export const mockPosts: Post[] = [
     content: "涵盖学习、工作、生活",
     author: "科技达人",
     likes: 2900,
-    imageUrl: "https://picsum.photos/400/300?random=17",
+    imageUrl: "https://picsum.photos/400/300?random=17", // 4:3 横图
     category: "recommend",
   },
   {
@@ -162,7 +162,7 @@ export const mockPosts: Post[] = [
     content: "从兴趣出发的实用建议",
     author: "育儿专家",
     likes: 4700,
-    imageUrl: "https://picsum.photos/400/300?random=18",
+    imageUrl: "https://picsum.photos/300/400?random=18", // 3:4 竖图
     category: "recommend",
   },
   {
@@ -171,7 +171,7 @@ export const mockPosts: Post[] = [
     content: "关键时刻能派上用场",
     author: "医护工作者",
     likes: 5100,
-    imageUrl: "https://picsum.photos/400/300?random=19",
+    imageUrl: "https://picsum.photos/400/500?random=19", // 4:5 竖图
     category: "recommend",
   },
   {
@@ -180,7 +180,7 @@ export const mockPosts: Post[] = [
     content: "告别混乱，轻松找到想穿的衣服",
     author: "整理师",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=20",
+    imageUrl: "https://picsum.photos/400/300?random=20", // 4:3 横图
     category: "recommend",
   },
   {
@@ -189,7 +189,7 @@ export const mockPosts: Post[] = [
     content: "容易上手的几种乐器",
     author: "音乐老师",
     likes: 2600,
-    imageUrl: "https://picsum.photos/400/300?random=21",
+    imageUrl: "https://picsum.photos/300/400?random=21", // 3:4 竖图
     category: "recommend",
   },
   {
@@ -198,7 +198,7 @@ export const mockPosts: Post[] = [
     content: "久坐族必备",
     author: "康复医师",
     likes: 6400,
-    imageUrl: "https://picsum.photos/400/300?random=22",
+    imageUrl: "https://picsum.photos/400/500?random=22", // 4:5 竖图
     category: "recommend",
   },
   {
@@ -207,7 +207,7 @@ export const mockPosts: Post[] = [
     content: "让小户型也能井井有条",
     author: "收纳达人",
     likes: 3300,
-    imageUrl: "https://picsum.photos/400/300?random=23",
+    imageUrl: "https://picsum.photos/400/300?random=23", // 4:3 横图
     category: "recommend",
   },
   {
@@ -216,18 +216,18 @@ export const mockPosts: Post[] = [
     content: "营养又美味",
     author: "美食博主",
     likes: 4200,
-    imageUrl: "https://picsum.photos/400/300?random=24",
+    imageUrl: "https://picsum.photos/300/400?random=24", // 3:4 竖图
     category: "recommend",
   },
 
-  // fashion分类 (12条)
+  // fashion分类 (12条) - 均匀分配三种比例
   {
     id: 25,
     title: "春季必备的5件基础单品",
     content: "百搭实用，轻松应对各种场合",
     author: "时尚编辑",
     likes: 3200,
-    imageUrl: "https://picsum.photos/400/300?random=25",
+    imageUrl: "https://picsum.photos/400/500?random=25", // 4:5 竖图
     category: "fashion",
   },
   {
@@ -236,7 +236,7 @@ export const mockPosts: Post[] = [
     content: "显高显瘦的秘诀",
     author: "穿搭博主",
     likes: 5800,
-    imageUrl: "https://picsum.photos/400/300?random=26",
+    imageUrl: "https://picsum.photos/400/300?random=26", // 4:3 横图
     category: "fashion",
   },
   {
@@ -245,7 +245,7 @@ export const mockPosts: Post[] = [
     content: "专业又不失个性",
     author: "职场时尚顾问",
     likes: 2900,
-    imageUrl: "https://picsum.photos/400/300?random=27",
+    imageUrl: "https://picsum.photos/300/400?random=27", // 3:4 竖图
     category: "fashion",
   },
   {
@@ -254,7 +254,7 @@ export const mockPosts: Post[] = [
     content: "不同身材的选择建议",
     author: "服装设计师",
     likes: 4100,
-    imageUrl: "https://picsum.photos/400/300?random=28",
+    imageUrl: "https://picsum.photos/400/500?random=28", // 4:5 竖图
     category: "fashion",
   },
   {
@@ -263,7 +263,7 @@ export const mockPosts: Post[] = [
     content: "不用费心也能很有型",
     author: "男装搭配师",
     likes: 2700,
-    imageUrl: "https://picsum.photos/400/300?random=29",
+    imageUrl: "https://picsum.photos/400/300?random=29", // 4:3 横图
     category: "fashion",
   },
   {
@@ -272,7 +272,7 @@ export const mockPosts: Post[] = [
     content: "小细节大作用",
     author: "时尚达人",
     likes: 3500,
-    imageUrl: "https://picsum.photos/400/300?random=30",
+    imageUrl: "https://picsum.photos/300/400?random=30", // 3:4 竖图
     category: "fashion",
   },
   {
@@ -281,7 +281,7 @@ export const mockPosts: Post[] = [
     content: "一件风衣穿出不同风格",
     author: "造型师",
     likes: 4200,
-    imageUrl: "https://picsum.photos/400/300?random=31",
+    imageUrl: "https://picsum.photos/400/500?random=31", // 4:5 竖图
     category: "fashion",
   },
   {
@@ -290,7 +290,7 @@ export const mockPosts: Post[] = [
     content: "扬长避短的搭配法则",
     author: "大码模特",
     likes: 5300,
-    imageUrl: "https://picsum.photos/400/300?random=32",
+    imageUrl: "https://picsum.photos/400/300?random=32", // 4:3 横图
     category: "fashion",
   },
   {
@@ -299,7 +299,7 @@ export const mockPosts: Post[] = [
     content: "如何穿出高级复古感",
     author: "复古爱好者",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=33",
+    imageUrl: "https://picsum.photos/300/400?random=33", // 3:4 竖图
     category: "fashion",
   },
   {
@@ -308,7 +308,7 @@ export const mockPosts: Post[] = [
     content: "舒适与时尚并存",
     author: "潮流博主",
     likes: 4600,
-    imageUrl: "https://picsum.photos/400/300?random=34",
+    imageUrl: "https://picsum.photos/400/500?random=34", // 4:5 竖图
     category: "fashion",
   },
   {
@@ -317,7 +317,7 @@ export const mockPosts: Post[] = [
     content: "告别臃肿，温暖又时髦",
     author: "冬季穿搭达人",
     likes: 3100,
-    imageUrl: "https://picsum.photos/400/300?random=35",
+    imageUrl: "https://picsum.photos/400/300?random=35", // 4:3 横图
     category: "fashion",
   },
   {
@@ -326,18 +326,18 @@ export const mockPosts: Post[] = [
     content: "新手也能掌握的配色技巧",
     author: "色彩顾问",
     likes: 2800,
-    imageUrl: "https://picsum.photos/400/300?random=36",
+    imageUrl: "https://picsum.photos/300/400?random=36", // 3:4 竖图
     category: "fashion",
   },
 
-  // food分类 (15条)
+  // food分类 (15条) - 均匀分配三种比例
   {
     id: 37,
     title: "在家也能做的米其林甜点",
     content: "简单易上手的法式甜点",
     author: "甜点师",
     likes: 4800,
-    imageUrl: "https://picsum.photos/400/300?random=37",
+    imageUrl: "https://picsum.photos/400/500?random=37", // 4:5 竖图
     category: "food",
   },
   {
@@ -346,7 +346,7 @@ export const mockPosts: Post[] = [
     content: "上班族必备菜谱",
     author: "家常菜达人",
     likes: 3500,
-    imageUrl: "https://picsum.photos/400/300?random=38",
+    imageUrl: "https://picsum.photos/400/300?random=38", // 4:3 横图
     category: "food",
   },
   {
@@ -355,7 +355,7 @@ export const mockPosts: Post[] = [
     content: "无添加更健康",
     author: "饮品师",
     likes: 6200,
-    imageUrl: "https://picsum.photos/400/300?random=39",
+    imageUrl: "https://picsum.photos/300/400?random=39", // 3:4 竖图
     category: "food",
   },
   {
@@ -364,7 +364,7 @@ export const mockPosts: Post[] = [
     content: "低卡美味，减脂必备",
     author: "健身餐厨师",
     likes: 3900,
-    imageUrl: "https://picsum.photos/400/300?random=40",
+    imageUrl: "https://picsum.photos/400/500?random=40", // 4:5 竖图
     category: "food",
   },
   {
@@ -373,7 +373,7 @@ export const mockPosts: Post[] = [
     content: "从入门到精通的烘焙指南",
     author: "面包师",
     likes: 5100,
-    imageUrl: "https://picsum.photos/400/300?random=41",
+    imageUrl: "https://picsum.photos/400/300?random=41", // 4:3 横图
     category: "food",
   },
   {
@@ -382,7 +382,7 @@ export const mockPosts: Post[] = [
     content: "麻辣鲜香，开胃下饭",
     author: "川菜大厨",
     likes: 4300,
-    imageUrl: "https://picsum.photos/400/300?random=42",
+    imageUrl: "https://picsum.photos/300/400?random=42", // 3:4 竖图
     category: "food",
   },
   {
@@ -391,7 +391,7 @@ export const mockPosts: Post[] = [
     content: "汤底秘诀大公开",
     author: "日料厨师",
     likes: 3700,
-    imageUrl: "https://picsum.photos/400/300?random=43",
+    imageUrl: "https://picsum.photos/400/500?random=43", // 4:5 竖图
     category: "food",
   },
   {
@@ -400,7 +400,7 @@ export const mockPosts: Post[] = [
     content: "营养丰富，易于消化",
     author: "养生达人",
     likes: 2900,
-    imageUrl: "https://picsum.photos/400/300?random=44",
+    imageUrl: "https://picsum.photos/400/300?random=44", // 4:3 横图
     category: "food",
   },
   {
@@ -409,7 +409,7 @@ export const mockPosts: Post[] = [
     content: "无添加剂，孩子也能吃",
     author: "宝妈厨房",
     likes: 4600,
-    imageUrl: "https://picsum.photos/400/300?random=45",
+    imageUrl: "https://picsum.photos/300/400?random=45", // 3:4 竖图
     category: "food",
   },
   {
@@ -418,7 +418,7 @@ export const mockPosts: Post[] = [
     content: "如何保持海鲜的鲜嫩",
     author: "海鲜料理师",
     likes: 3200,
-    imageUrl: "https://picsum.photos/400/300?random=46",
+    imageUrl: "https://picsum.photos/400/500?random=46", // 4:5 竖图
     category: "food",
   },
   {
@@ -427,7 +427,7 @@ export const mockPosts: Post[] = [
     content: "美味又营养的素食菜谱",
     author: "素食厨师",
     likes: 2800,
-    imageUrl: "https://picsum.photos/400/300?random=47",
+    imageUrl: "https://picsum.photos/400/300?random=47", // 4:3 横图
     category: "food",
   },
   {
@@ -436,7 +436,7 @@ export const mockPosts: Post[] = [
     content: "自制酱料更美味",
     author: "烧烤达人",
     likes: 5300,
-    imageUrl: "https://picsum.photos/400/300?random=48",
+    imageUrl: "https://picsum.photos/300/400?random=48", // 3:4 竖图
     category: "food",
   },
   {
@@ -445,7 +445,7 @@ export const mockPosts: Post[] = [
     content: "让孩子爱上吃饭",
     author: "儿童营养师",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=49",
+    imageUrl: "https://picsum.photos/400/500?random=49", // 4:5 竖图
     category: "food",
   },
   {
@@ -454,7 +454,7 @@ export const mockPosts: Post[] = [
     content: "暖心暖胃，增强免疫力",
     author: "中医食疗师",
     likes: 4100,
-    imageUrl: "https://picsum.photos/400/300?random=50",
+    imageUrl: "https://picsum.photos/400/300?random=50", // 4:3 横图
     category: "food",
   },
   {
@@ -463,18 +463,18 @@ export const mockPosts: Post[] = [
     content: "简单美味的意大利面做法",
     author: "西餐厨师",
     likes: 3600,
-    imageUrl: "https://picsum.photos/400/300?random=51",
+    imageUrl: "https://picsum.photos/300/400?random=51", // 3:4 竖图
     category: "food",
   },
 
-  // makeup分类 (10条)
+  // makeup分类 (10条) - 均匀分配三种比例
   {
     id: 52,
     title: "新手化妆步骤详解",
     content: "从底妆到定妆的完整流程",
     author: "美妆教程",
     likes: 6800,
-    imageUrl: "https://picsum.photos/400/300?random=52",
+    imageUrl: "https://picsum.photos/400/500?random=52", // 4:5 竖图
     category: "makeup",
   },
   {
@@ -483,7 +483,7 @@ export const mockPosts: Post[] = [
     content: "自然得体，提升气色",
     author: "职业化妆师",
     likes: 4200,
-    imageUrl: "https://picsum.photos/400/300?random=53",
+    imageUrl: "https://picsum.photos/400/300?random=53", // 4:3 横图
     category: "makeup",
   },
   {
@@ -492,7 +492,7 @@ export const mockPosts: Post[] = [
     content: "告别卡粉浮粉",
     author: "美妆博主",
     likes: 5300,
-    imageUrl: "https://picsum.photos/400/300?random=54",
+    imageUrl: "https://picsum.photos/300/400?random=54", // 3:4 竖图
     category: "makeup",
   },
   {
@@ -501,7 +501,7 @@ export const mockPosts: Post[] = [
     content: "从单眼皮到双眼皮的不同画法",
     author: "眼妆专家",
     likes: 4700,
-    imageUrl: "https://picsum.photos/400/300?random=55",
+    imageUrl: "https://picsum.photos/400/500?random=55", // 4:5 竖图
     category: "makeup",
   },
   {
@@ -510,7 +510,7 @@ export const mockPosts: Post[] = [
     content: "持久妆容的秘密",
     author: "彩妆师",
     likes: 5900,
-    imageUrl: "https://picsum.photos/400/300?random=56",
+    imageUrl: "https://picsum.photos/400/300?random=56", // 4:3 横图
     category: "makeup",
   },
   {
@@ -519,7 +519,7 @@ export const mockPosts: Post[] = [
     content: "根据肤色选对口红",
     author: "美妆达人",
     likes: 4300,
-    imageUrl: "https://picsum.photos/400/300?random=57",
+    imageUrl: "https://picsum.photos/300/400?random=57", // 3:4 竖图
     category: "makeup",
   },
   {
@@ -528,7 +528,7 @@ export const mockPosts: Post[] = [
     content: "适合赶时间的早晨",
     author: "效率美妆",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=58",
+    imageUrl: "https://picsum.photos/400/500?random=58", // 4:5 竖图
     category: "makeup",
   },
   {
@@ -537,7 +537,7 @@ export const mockPosts: Post[] = [
     content: "彻底清洁，保护肌肤",
     author: "护肤专家",
     likes: 4600,
-    imageUrl: "https://picsum.photos/400/300?random=59",
+    imageUrl: "https://picsum.photos/400/300?random=59", // 4:3 横图
     category: "makeup",
   },
   {
@@ -546,7 +546,7 @@ export const mockPosts: Post[] = [
     content: "告别干燥脱皮",
     author: "唇部护理师",
     likes: 3200,
-    imageUrl: "https://picsum.photos/400/300?random=60",
+    imageUrl: "https://picsum.photos/300/400?random=60", // 3:4 竖图
     category: "makeup",
   },
   {
@@ -555,18 +555,18 @@ export const mockPosts: Post[] = [
     content: "闪耀全场的妆容技巧",
     author: "派对妆专家",
     likes: 5100,
-    imageUrl: "https://picsum.photos/400/300?random=61",
+    imageUrl: "https://picsum.photos/400/500?random=61", // 4:5 竖图
     category: "makeup",
   },
 
-  // movie分类 (8条)
+  // movie分类 (8条) - 均匀分配三种比例
   {
     id: 62,
     title: "2023年必看的科幻电影",
     content: "脑洞大开的视觉盛宴",
     author: "影评人",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=62",
+    imageUrl: "https://picsum.photos/400/500?random=62", // 4:5 竖图
     category: "movie",
   },
   {
@@ -575,7 +575,7 @@ export const mockPosts: Post[] = [
     content: "烧脑又过瘾的佳作",
     author: "悬疑爱好者",
     likes: 4200,
-    imageUrl: "https://picsum.photos/400/300?random=63",
+    imageUrl: "https://picsum.photos/400/300?random=63", // 4:3 横图
     category: "movie",
   },
   {
@@ -584,7 +584,7 @@ export const mockPosts: Post[] = [
     content: "温暖治愈的童话世界",
     author: "动画迷",
     likes: 5600,
-    imageUrl: "https://picsum.photos/400/300?random=64",
+    imageUrl: "https://picsum.photos/300/400?random=64", // 3:4 竖图
     category: "movie",
   },
   {
@@ -593,7 +593,7 @@ export const mockPosts: Post[] = [
     content: "从专业角度看电影",
     author: "电影学者",
     likes: 3100,
-    imageUrl: "https://picsum.photos/400/300?random=65",
+    imageUrl: "https://picsum.photos/400/500?random=65", // 4:5 竖图
     category: "movie",
   },
   {
@@ -602,7 +602,7 @@ export const mockPosts: Post[] = [
     content: "甜蜜又感人的爱情故事",
     author: "情侣指南",
     likes: 4700,
-    imageUrl: "https://picsum.photos/400/300?random=66",
+    imageUrl: "https://picsum.photos/400/300?random=66", // 4:3 横图
     category: "movie",
   },
   {
@@ -611,7 +611,7 @@ export const mockPosts: Post[] = [
     content: "真实比虚构更精彩",
     author: "纪录片迷",
     likes: 2900,
-    imageUrl: "https://picsum.photos/400/300?random=67",
+    imageUrl: "https://picsum.photos/300/400?random=67", // 3:4 竖图
     category: "movie",
   },
   {
@@ -620,7 +620,7 @@ export const mockPosts: Post[] = [
     content: "从钢铁侠到复仇者联盟",
     author: "漫威粉丝",
     likes: 6300,
-    imageUrl: "https://picsum.photos/400/300?random=68",
+    imageUrl: "https://picsum.photos/400/500?random=68", // 4:5 竖图
     category: "movie",
   },
   {
@@ -629,18 +629,18 @@ export const mockPosts: Post[] = [
     content: "紧张刺激的剧情反转",
     author: "韩影爱好者",
     likes: 3500,
-    imageUrl: "https://picsum.photos/400/300?random=69",
+    imageUrl: "https://picsum.photos/400/300?random=69", // 4:3 横图
     category: "movie",
   },
 
-  // workplace分类 (7条)
+  // workplace分类 (7条) - 均匀分配三种比例
   {
     id: 70,
     title: "职场新人的生存法则",
     content: "快速融入团队的技巧",
     author: "HR总监",
     likes: 4200,
-    imageUrl: "https://picsum.photos/400/300?random=70",
+    imageUrl: "https://picsum.photos/400/500?random=70", // 4:5 竖图
     category: "workplace",
   },
   {
@@ -649,7 +649,7 @@ export const mockPosts: Post[] = [
     content: "告别冗长无效的会议",
     author: "项目经理",
     likes: 3100,
-    imageUrl: "https://picsum.photos/400/300?random=71",
+    imageUrl: "https://picsum.photos/400/300?random=71", // 4:3 横图
     category: "workplace",
   },
   {
@@ -658,7 +658,7 @@ export const mockPosts: Post[] = [
     content: "如何清晰表达自己的想法",
     author: "沟通教练",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=72",
+    imageUrl: "https://picsum.photos/300/400?random=72", // 3:4 竖图
     category: "workplace",
   },
   {
@@ -667,7 +667,7 @@ export const mockPosts: Post[] = [
     content: "找到适合自己的发展方向",
     author: "职业顾问",
     likes: 4500,
-    imageUrl: "https://picsum.photos/400/300?random=73",
+    imageUrl: "https://picsum.photos/400/500?random=73", // 4:5 竖图
     category: "workplace",
   },
   {
@@ -676,7 +676,7 @@ export const mockPosts: Post[] = [
     content: "保持身心健康的方法",
     author: "心理咨询师",
     likes: 3600,
-    imageUrl: "https://picsum.photos/400/300?random=74",
+    imageUrl: "https://picsum.photos/400/300?random=74", // 4:3 横图
     category: "workplace",
   },
   {
@@ -685,7 +685,7 @@ export const mockPosts: Post[] = [
     content: "居家办公也能高效产出",
     author: "远程工作者",
     likes: 5200,
-    imageUrl: "https://picsum.photos/400/300?random=75",
+    imageUrl: "https://picsum.photos/300/400?random=75", // 3:4 竖图
     category: "workplace",
   },
   {
@@ -694,18 +694,18 @@ export const mockPosts: Post[] = [
     content: "除了能力之外的重要特质",
     author: "高管分享",
     likes: 4800,
-    imageUrl: "https://picsum.photos/400/300?random=76",
+    imageUrl: "https://picsum.photos/400/500?random=76", // 4:5 竖图
     category: "workplace",
   },
 
-  // emotion分类 (6条)
+  // emotion分类 (6条) - 均匀分配三种比例
   {
     id: 77,
     title: "如何克服社交恐惧",
     content: "逐步建立社交自信",
     author: "心理医生",
     likes: 5300,
-    imageUrl: "https://picsum.photos/400/300?random=77",
+    imageUrl: "https://picsum.photos/400/500?random=77", // 4:5 竖图
     category: "emotion",
   },
   {
@@ -714,7 +714,7 @@ export const mockPosts: Post[] = [
     content: "保持独立又亲密的关系",
     author: "情感咨询师",
     likes: 4600,
-    imageUrl: "https://picsum.photos/400/300?random=78",
+    imageUrl: "https://picsum.photos/400/300?random=78", // 4:3 横图
     category: "emotion",
   },
   {
@@ -723,7 +723,7 @@ export const mockPosts: Post[] = [
     content: "日常可操作的减压技巧",
     author: "情绪管理师",
     likes: 6100,
-    imageUrl: "https://picsum.photos/400/300?random=79",
+    imageUrl: "https://picsum.photos/300/400?random=79", // 3:4 竖图
     category: "emotion",
   },
   {
@@ -732,7 +732,7 @@ export const mockPosts: Post[] = [
     content: "理解与被理解的旅程",
     author: "亲子关系专家",
     likes: 4900,
-    imageUrl: "https://picsum.photos/400/300?random=80",
+    imageUrl: "https://picsum.photos/400/500?random=80", // 4:5 竖图
     category: "emotion",
   },
   {
@@ -741,7 +741,7 @@ export const mockPosts: Post[] = [
     content: "走出失恋阴影的方法",
     author: "失恋顾问",
     likes: 5800,
-    imageUrl: "https://picsum.photos/400/300?random=81",
+    imageUrl: "https://picsum.photos/400/300?random=81", // 4:3 横图
     category: "emotion",
   },
   {
@@ -750,18 +750,18 @@ export const mockPosts: Post[] = [
     content: "爱与被爱的能力",
     author: "婚姻咨询师",
     likes: 4300,
-    imageUrl: "https://picsum.photos/400/300?random=82",
+    imageUrl: "https://picsum.photos/300/400?random=82", // 3:4 竖图
     category: "emotion",
   },
 
-  // home分类 (8条)
+  // home分类 (8条) - 均匀分配三种比例
   {
     id: 83,
     title: "小户型收纳技巧",
     content: "充分利用每一寸空间",
     author: "收纳专家",
     likes: 4700,
-    imageUrl: "https://picsum.photos/400/300?random=83",
+    imageUrl: "https://picsum.photos/400/500?random=83", // 4:5 竖图
     category: "home",
   },
   {
@@ -770,7 +770,7 @@ export const mockPosts: Post[] = [
     content: "简约舒适的居住空间",
     author: "室内设计师",
     likes: 5200,
-    imageUrl: "https://picsum.photos/400/300?random=84",
+    imageUrl: "https://picsum.photos/400/300?random=84", // 4:3 横图
     category: "home",
   },
   {
@@ -779,7 +779,7 @@ export const mockPosts: Post[] = [
     content: "打造自然清新的家",
     author: "植物爱好者",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=85",
+    imageUrl: "https://picsum.photos/300/400?random=85", // 3:4 竖图
     category: "home",
   },
   {
@@ -788,7 +788,7 @@ export const mockPosts: Post[] = [
     content: "让烹饪更高效愉悦",
     author: "家政达人",
     likes: 4100,
-    imageUrl: "https://picsum.photos/400/300?random=86",
+    imageUrl: "https://picsum.photos/400/500?random=86", // 4:5 竖图
     category: "home",
   },
   {
@@ -797,7 +797,7 @@ export const mockPosts: Post[] = [
     content: "小改变带来大不同",
     author: "DIY爱好者",
     likes: 3600,
-    imageUrl: "https://picsum.photos/400/300?random=87",
+    imageUrl: "https://picsum.photos/400/300?random=87", // 4:3 横图
     category: "home",
   },
   {
@@ -806,7 +806,7 @@ export const mockPosts: Post[] = [
     content: "提升生活品质的科技产品",
     author: "科技家居达人",
     likes: 4900,
-    imageUrl: "https://picsum.photos/400/300?random=88",
+    imageUrl: "https://picsum.photos/300/400?random=88", // 3:4 竖图
     category: "home",
   },
   {
@@ -815,7 +815,7 @@ export const mockPosts: Post[] = [
     content: "助你拥有好睡眠",
     author: "风水顾问",
     likes: 3200,
-    imageUrl: "https://picsum.photos/400/300?random=89",
+    imageUrl: "https://picsum.photos/400/500?random=89", // 4:5 竖图
     category: "home",
   },
   {
@@ -824,18 +824,18 @@ export const mockPosts: Post[] = [
     content: "保持洁净清爽的小技巧",
     author: "清洁专家",
     likes: 2900,
-    imageUrl: "https://picsum.photos/400/300?random=90",
+    imageUrl: "https://picsum.photos/400/300?random=90", // 4:3 横图
     category: "home",
   },
 
-  // game分类 (5条)
+  // game分类 (5条) - 均匀分配三种比例
   {
     id: 91,
     title: "王者荣耀新手英雄推荐",
     content: "容易上手的强势英雄",
     author: "游戏教练",
     likes: 7200,
-    imageUrl: "https://picsum.photos/400/300?random=91",
+    imageUrl: "https://picsum.photos/400/500?random=91", // 4:5 竖图
     category: "game",
   },
   {
@@ -844,7 +844,7 @@ export const mockPosts: Post[] = [
     content: "隐藏任务与彩蛋",
     author: "任天堂粉丝",
     likes: 5800,
-    imageUrl: "https://picsum.photos/400/300?random=92",
+    imageUrl: "https://picsum.photos/400/300?random=92", // 4:3 横图
     category: "game",
   },
   {
@@ -853,7 +853,7 @@ export const mockPosts: Post[] = [
     content: "专业玩家的一天",
     author: "职业选手",
     likes: 4300,
-    imageUrl: "https://picsum.photos/400/300?random=93",
+    imageUrl: "https://picsum.photos/300/400?random=93", // 3:4 竖图
     category: "game",
   },
   {
@@ -862,7 +862,7 @@ export const mockPosts: Post[] = [
     content: "增进感情的互动游戏",
     author: "游戏情侣",
     likes: 3700,
-    imageUrl: "https://picsum.photos/400/300?random=94",
+    imageUrl: "https://picsum.photos/400/500?random=94", // 4:5 竖图
     category: "game",
   },
   {
@@ -871,18 +871,18 @@ export const mockPosts: Post[] = [
     content: "那些陪伴我们成长的游戏",
     author: "老玩家",
     likes: 4900,
-    imageUrl: "https://picsum.photos/400/300?random=95",
+    imageUrl: "https://picsum.photos/400/300?random=95", // 4:3 横图
     category: "game",
   },
 
-  // travel分类 (10条)
+  // travel分类 (10条) - 均匀分配三种比例
   {
     id: 96,
     title: "云南小众旅行地推荐",
     content: "避开人潮的秘境",
     author: "旅行博主",
     likes: 5300,
-    imageUrl: "https://picsum.photos/400/300?random=96",
+    imageUrl: "https://picsum.photos/400/500?random=96", // 4:5 竖图
     category: "travel",
   },
   {
@@ -891,7 +891,7 @@ export const mockPosts: Post[] = [
     content: "京都、大阪、奈良7日游",
     author: "日本通",
     likes: 4800,
-    imageUrl: "https://picsum.photos/400/300?random=97",
+    imageUrl: "https://picsum.photos/400/300?random=97", // 4:3 横图
     category: "travel",
   },
   {
@@ -900,7 +900,7 @@ export const mockPosts: Post[] = [
     content: "安全又自在的 solo trip",
     author: "独行侠",
     likes: 3900,
-    imageUrl: "https://picsum.photos/400/300?random=98",
+    imageUrl: "https://picsum.photos/300/400?random=98", // 3:4 竖图
     category: "travel",
   },
   {
@@ -909,7 +909,7 @@ export const mockPosts: Post[] = [
     content: "说走就走的旅行准备",
     author: "自驾爱好者",
     likes: 4200,
-    imageUrl: "https://picsum.photos/400/300?random=99",
+    imageUrl: "https://picsum.photos/400/500?random=99", // 4:5 竖图
     category: "travel",
   },
   {
@@ -918,7 +918,7 @@ export const mockPosts: Post[] = [
     content: "性价比高的度假胜地",
     author: "海岛控",
     likes: 5600,
-    imageUrl: "https://picsum.photos/400/300?random=100",
+    imageUrl: "https://picsum.photos/400/300?random=100", // 4:3 横图
     category: "travel",
   },
   {
@@ -927,7 +927,7 @@ export const mockPosts: Post[] = [
     content: "高原反应预防与应对",
     author: "西藏向导",
     likes: 4100,
-    imageUrl: "https://picsum.photos/400/300?random=101",
+    imageUrl: "https://picsum.photos/300/400?random=101", // 3:4 竖图
     category: "travel",
   },
   {
@@ -936,7 +936,7 @@ export const mockPosts: Post[] = [
     content: "跨国交通与铁路通票",
     author: "欧洲旅行达人",
     likes: 3700,
-    imageUrl: "https://picsum.photos/400/300?random=102",
+    imageUrl: "https://picsum.photos/400/500?random=102", // 4:5 竖图
     category: "travel",
   },
   {
@@ -945,7 +945,7 @@ export const mockPosts: Post[] = [
     content: "绝美风景出片率高",
     author: "旅行摄影师",
     likes: 5200,
-    imageUrl: "https://picsum.photos/400/300?random=103",
+    imageUrl: "https://picsum.photos/400/300?random=103", // 4:3 横图
     category: "travel",
   },
   {
@@ -954,7 +954,7 @@ export const mockPosts: Post[] = [
     content: "带娃旅行的好去处",
     author: "亲子游攻略",
     likes: 4500,
-    imageUrl: "https://picsum.photos/400/300?random=104",
+    imageUrl: "https://picsum.photos/300/400?random=104", // 3:4 竖图
     category: "travel",
   },
   {
@@ -963,18 +963,18 @@ export const mockPosts: Post[] = [
     content: "各地特色美食指南",
     author: "美食旅行家",
     likes: 4900,
-    imageUrl: "https://picsum.photos/400/300?random=105",
+    imageUrl: "https://picsum.photos/400/500?random=105", // 4:5 竖图
     category: "travel",
   },
 
-  // exercise分类 (4条)
+  // exercise分类 (4条) - 均匀分配三种比例
   {
     id: 106,
     title: "办公室微运动指南",
     content: "久坐族的健康救星",
     author: "办公室健身教练",
     likes: 4300,
-    imageUrl: "https://picsum.photos/400/300?random=106",
+    imageUrl: "https://picsum.photos/400/500?random=106", // 4:5 竖图
     category: "exercise",
   },
   {
@@ -983,7 +983,7 @@ export const mockPosts: Post[] = [
     content: "从跑不动到轻松跑5公里",
     author: "马拉松选手",
     likes: 3800,
-    imageUrl: "https://picsum.photos/400/300?random=107",
+    imageUrl: "https://picsum.photos/400/300?random=107", // 4:3 横图
     category: "exercise",
   },
   {
@@ -992,7 +992,7 @@ export const mockPosts: Post[] = [
     content: "改善体态，缓解压力",
     author: "瑜伽导师",
     likes: 4600,
-    imageUrl: "https://picsum.photos/400/300?random=108",
+    imageUrl: "https://picsum.photos/300/400?random=108", // 3:4 竖图
     category: "exercise",
   },
   {
@@ -1001,7 +1001,7 @@ export const mockPosts: Post[] = [
     content: "不用器械也能练全身",
     author: "健身达人",
     likes: 5100,
-    imageUrl: "https://picsum.photos/400/300?random=109",
+    imageUrl: "https://picsum.photos/400/500?random=109", // 4:5 竖图
     category: "exercise",
   },
 ];

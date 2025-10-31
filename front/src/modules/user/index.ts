@@ -152,12 +152,23 @@ const useUserStore = create<UserState>()(
           set({ isLoading: true, error: null });
           try {
             console.log("进入到获取头像逻辑");
-            const avatarInfo = await fetchCurrentUser();
+            const currentUserData = await fetchCurrentUser();
             console.log("✅ 成功拉取用户信息：", {
-              id: avatarInfo.id,
-              avatarUrl: avatarInfo.avatarInfo?.avatarUrl,
+              id: currentUserData.id,
+              name: currentUserData.name,
+              username: currentUserData.username,
+              avatarUrl: currentUserData.avatarInfo?.avatarUrl,
             });
-            // 可以利用也许是userInfo，再补充更新头像的判断信息
+
+            // 关键修复：使用后端返回的完整用户信息更新 store
+            const updatedUserInfo: CompleteUserInfo = {
+              id: currentUserData.id,
+              name: currentUserData.name,
+              username: currentUserData.username,
+              avatarInfo: currentUserData.avatarInfo,
+            };
+            set({ userInfo: updatedUserInfo });
+            console.log("✅ 已更新 store 中的 userInfo", updatedUserInfo);
           } catch (err: any) {
             // 添加更详细的错误日志，特别针对获取用户头像/信息的错误
             console.error("❌ 获取用户信息失败 - 请求错误:", {

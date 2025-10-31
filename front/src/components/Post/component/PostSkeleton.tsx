@@ -4,7 +4,7 @@
 import React from "react";
 
 const SKELETON_SIZES = {
-  LARGE: { height: 290 },
+  LARGE: { height: 250 },
   SMALL: { height: 150 },
 };
 
@@ -32,33 +32,6 @@ function PostSkeleton({ size }: { size?: "large" | "small" | "random" }) {
   const imageHeight = getImageHeight();
 
   return (
-    // <div
-    //   className="rounded-lg overflow-hidden bg-gray"
-    //   style={{
-    //     width: "100%",
-    //   }}
-    // >
-    //   {/* 骨架屏图片区域 */}
-    //   <div className="w-full" style={{ height: `calc(100% - 60px)` }}>
-    //     <div className="w-full h-full bg-gray-200 dark:bg-gray-700" />
-    //   </div>
-    //   {/* 底部信息区 */}
-    //   <div className="p-3">
-    //     {/* 用户信息区 */}
-    //     <div className="flex items-center gap-2 mb-2">
-    //       <div className="h-6 w-6 rounded-full" />
-    //       <div className="h-3 flex-1 rounded" />
-    //     </div>
-    //     {/* 点赞 */}
-    //     <div className="flex items-center justify-between">
-    //       <div className="flex items-center gap-3">
-    //         <div className="h-6 w-12 rounded animate-pulse" />
-    //         <div className="h-6 w-12 rounded animate-pulse" />
-    //       </div>
-    //       <div className="h-6 w-6 rounded animate-pulse" />
-    //     </div>
-    //   </div>
-    // </div>
     <div className="card-container bg-gray rounded-2xl overflow-hidden transition-transform duration-300">
       {/* 图片区域 */}
       <div
@@ -134,29 +107,34 @@ export function MasonryGrid({
   // 解析间距为数值，用于计算
   const spacingValue = parseFloat(spacing);
 
-  // 确定当前屏幕尺寸下的列数
-  const getCurrentColumns = () => {
+  // 响应式列数
+  const [currentColumns, setCurrentColumns] = React.useState(() => {
+    // 初始化时计算列数
     if (typeof window === "undefined") return columns.base || 2;
-
     const width = window.innerWidth;
     if (width >= 1280) return columns.lg || 5;
     if (width >= 1024) return columns.md || 4;
     if (width >= 768) return columns.sm || 3;
     if (width >= 640) return columns.xs || 2;
     return columns.base || 2;
-  };
+  });
 
-  // 响应式列数
-  const [currentColumns, setCurrentColumns] = React.useState(
-    getCurrentColumns()
-  );
   React.useEffect(() => {
     const handleResize = () => {
-      setCurrentColumns(getCurrentColumns());
+      const width = window.innerWidth;
+      let newColumns;
+      if (width >= 1280) newColumns = columns.lg || 5;
+      else if (width >= 1024) newColumns = columns.md || 4;
+      else if (width >= 768) newColumns = columns.sm || 3;
+      else if (width >= 640) newColumns = columns.xs || 2;
+      else newColumns = columns.base || 2;
+
+      setCurrentColumns(newColumns);
     };
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [columns]);
+  }, [columns.base, columns.xs, columns.sm, columns.md, columns.lg]);
 
   // 根据容器大小确定最大宽度
   const containerWidth = {

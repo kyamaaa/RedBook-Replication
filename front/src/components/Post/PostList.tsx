@@ -5,33 +5,6 @@ import { Post } from "../../types/post";
 import { MasonryGrid } from "./component/PostSkeleton";
 import { PostSkeleton } from "./component/PostSkeleton";
 
-// interface PostListProps {
-//   /** 帖子列表数据源 */
-//   posts: Post[];
-//   // lastPostRef: RefObject<HTMLDivElement | null>;
-// }
-
-// // 2. 组件通过Props接收依赖项，解构后使用
-// export function PostList({ posts, lastPostRef }: PostListProps) {
-//   return (
-//     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-//       {posts.map((post, index) => {
-//         // 判断是否为最后一个帖子：给最后一个帖子的外层容器绑定lastPostRef
-//         if (posts.length === index + 1) {
-//           return (
-//             <div ref={lastPostRef} key={post.id}>
-//               <PostCard post={post} />
-//             </div>
-//           );
-//         } else {
-//           // 非最后一个帖子：直接渲染PostCard
-//           return <PostCard key={post.id} post={post} />;
-//         }
-//       })}
-//     </div>
-//   );
-// }
-
 interface PostListProps {
   posts: Post[];
   loading?: boolean;
@@ -50,7 +23,7 @@ export function PostList({
   return (
     // 用MasonryGrid作为统一容器：同时处理瀑布流布局和骨架屏
     <MasonryGrid
-      loading={true} // 控制骨架屏显示/隐藏
+      loading={loading} // 控制骨架屏显示/隐藏
       skeletonCount={skeletonCount} // 骨架屏总数
       columns={{ base: 2, xs: 2, sm: 3, md: 4, lg: 5 }} // 响应式列数
       spacing="1rem" // 列与列、卡片与卡片的间距（可根据需求调整）

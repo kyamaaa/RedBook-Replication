@@ -1,38 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
+// 侧边栏组件
+import React, { useState } from "react";
 import LoginModal from "../Login";
+import LoginSection from "./UserAvatar";
 
 const Sidebar: React.FC = () => {
-  const sidebarRef = useRef<HTMLDivElement>(null);
-
-  // 滑到底部的时候 isScrolled
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = (event: Event) => {
-      // 阻止事件冒泡
-      event.stopPropagation();
-
-      if (!sidebarRef.current) return;
-      const { scrollTop, scrollHeight, clientHeight } = sidebarRef.current;
-      const atBottom = scrollHeight - scrollTop <= clientHeight + 10;
-      setIsScrolled(atBottom);
-    };
-
-    const sidebarElement = sidebarRef.current;
-    if (sidebarElement) {
-      sidebarElement.addEventListener("scroll", handleScroll);
-    }
-
-    return () => {
-      if (sidebarElement) {
-        sidebarElement.removeEventListener("scroll", handleScroll);
-      }
-    };
-  }, []);
-  const handleWheel = (e: React.WheelEvent) => {
-    e.stopPropagation();
-  };
-
   // 登录弹窗
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
@@ -49,19 +20,8 @@ const Sidebar: React.FC = () => {
     console.log("二维码登录");
   };
 
-  const handleLogin = (phone: string, code: string) => {
-    console.log("手机号登录", phone, code);
-    handleCloseModal();
-  };
-
   return (
-    <div
-      ref={sidebarRef}
-      onWheel={handleWheel}
-      className={`flex flex-none h-full w-full relative bg-white overflow-x-hidden overflow-y-auto scrollbar-hide ${
-        isScrolled ? "fixed inset-y-0 left-0" : ""
-      }`}
-    >
+    <div className="flex flex-none h-full w-full relative bg-white">
       <div className="flex flex-col h-full">
         <div className="flex flex-col space-y-2 relative">
           <button className=" flex items-center text-black font-bold bg-gray px-2 py-3 rounded-full">
@@ -125,25 +85,12 @@ const Sidebar: React.FC = () => {
               onQrCodeLogin={handleQrLogin}
               onAgreeChange={setIsAgreed}
               isAgreed={isAgreed}
-              onLoginSuccess={() => {}}
             />
           </div>
           <div>
-            <button
-              className="flex w-full h-full items-center justify-center text-white font-bold bg-red px-2 py-3 rounded-full"
-              onClick={() => setIsLoginOpen(true)}
-            >
-              登录
-            </button>
-            <LoginModal
-              isOpen={isLoginOpen}
-              onClose={handleCloseModal}
-              onQrCodeLogin={handleQrLogin}
-              onAgreeChange={setIsAgreed}
-              isAgreed={isAgreed}
-              onLoginSuccess={() => {}}
-            />
+            <LoginSection />
           </div>
+
           <div className="mt-4 p-2 bg-gray-50 rounded-2xl border border-gray2">
             <p className="text-sm font-medium mt-2 ml-3 mb-3">马上登录即可</p>
             <ul className="text-sm font-normal text-gray4 space-y-2 ml-3 mb-3 ">

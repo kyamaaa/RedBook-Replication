@@ -1,9 +1,11 @@
+// 登录弹窗组件
 import React, { useEffect, useState } from "react";
 // 1. 导入用户状态管理 hooks
 import useUserStore from "../../modules/user";
 // 2. 导入服务层类型（确保类型安全）
 import { LoginParams } from "../../services/login";
 import { CompleteUserInfo } from "../../types/user";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface LoginModalProps {
   isOpen: boolean; // 是否显示弹窗
@@ -13,7 +15,7 @@ interface LoginModalProps {
   onAgreeChange: (isAgreed: boolean) => void; // 同意协议状态变化的回调
   isAgreed: boolean; // 是否同意协议
   size?: "small" | "large"; // 窗口大小
-  onLoginSuccess: (userId: number) => void;
+  onLoginSuccess?: (userId: number) => void; // 可选的额外回调
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({
@@ -25,6 +27,9 @@ const LoginModal: React.FC<LoginModalProps> = ({
   size = "large",
   onLoginSuccess,
 }) => {
+  // 获取导航函数
+  const navigate = useNavigate();
+
   // zustand 获取用户信息
   const [phone, setPhone] = useState("");
   const [code, setCode] = useState("");
@@ -80,7 +85,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   // 验证码倒计时逻辑
   useEffect(() => {
@@ -179,9 +184,18 @@ const LoginModal: React.FC<LoginModalProps> = ({
       // 调用 Zustand 的登录方法（对接后端接口）
       await loginAction(loginParams);
 
-      if (userInfo?.id) {
-        alert(`登录成功！欢迎您，${userInfo.name}`);
-        onLoginSuccess(Number(userInfo.id));
+      // 重新从 store 中获取最新的 userInfo（因为 loginAction 是异步的）
+      const latestUserInfo = useUserStore.getState().userInfo;
+
+      if (latestUserInfo?.id) {
+        alert(`登录成功！欢迎您，${latestUserInfo.name}`);
+
+        // 调用可选的回调函数
+        onLoginSuccess?.(Number(latestUserInfo.id));
+
+        // 跳转到带用户 ID 的推荐页面
+        navigate(`/recommend?id=${latestUserInfo.id}`);
+
         onClose(); // 关闭登录弹窗
       }
     } catch (err: any) {

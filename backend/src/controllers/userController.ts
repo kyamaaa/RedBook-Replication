@@ -59,8 +59,10 @@ export const getCurrentUser = (
     const avatarInfo = mockAvatarInfo.find((a) => a.userId === currentUserId);
 
     // 构建符合 CurrentUserAvatar 接口的响应
-    const response: CurrentUserAvatar = {
+    const response = {
       id: user.id,
+      name: user.name,
+      username: user.username,
       avatarInfo: avatarInfo,
     };
 

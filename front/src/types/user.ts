@@ -23,6 +23,8 @@ export interface UserAvatarInfo {
 // 当前用户响应
 export interface CurrentUserAvatar {
   id: number;
+  name: string;
+  username: string;
   avatarInfo?: UserAvatarInfo;
 }
 

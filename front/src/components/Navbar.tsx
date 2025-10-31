@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white  py-5 px-9 flex items-center justify-between">
+    <nav className="bg-white  py-5 px-9 flex items-center justify-between w-full max-w-7xl">
       <div className=" flex items-center justify-center bg-red font-bold w-20 h-8 rounded-full -ml-2">
         <p className="text-white text-bace font-mono">RedBook</p>
       </div>
@@ -69,7 +69,6 @@ const Navbar: React.FC = () => {
           onQrCodeLogin={handleQrLogin}
           onAgreeChange={setIsAgreed}
           isAgreed={isAgreed}
-          onLoginSuccess={() => {}}
         />
       </div>
 

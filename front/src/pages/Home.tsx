@@ -1,9 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
+// 首页组件
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { mockPosts } from "../mockData";
 import { Category, Post } from "../types/post";
 import { PostList } from "../components/Post/PostList";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import LoginModal from "../components/Login";
+
+// 生成唯一的ID的帖子
+const generateUniquePosts = (
+  count: number,
+  category?: Category,
+  existingPosts: Post[] = []
+): Post[] => {
+  const startId =
+    existingPosts.length > 0
+      ? Math.max(...existingPosts.map((p) => p.id)) + 1
+      : mockPosts.length;
+
+  return Array.from({ length: count }, (_, index) => {
+    const basePost = mockPosts[(startId + index) % mockPosts.length];
+    return {
+      ...basePost,
+      id: startId + index,
+      title: `${basePost.title} (${startId + index})`, // 确保标题唯一
+      category: category || basePost.category,
+    };
+  });
+};
 
 const Home: React.FC = () => {
   // 1. 列表状态：拆分为「新列表」和「原列表」，避免数据混淆
@@ -36,12 +59,6 @@ const Home: React.FC = () => {
   const [searchParams] = useSearchParams();
   const userId = searchParams.get("id");
 
-  // 处理登录成功的回调函数
-  const handleLoginSuccess = (userId: number) => {
-    // 在Home组件中进行导航，因为它在路由上下文内
-    navigate(`/recommend?id=${userId}`, { replace: true });
-  };
-
   const categoryButtons: Array<{
     key: Category; // 关键：将 key 类型约束为 Category
     text: string;
@@ -61,116 +78,135 @@ const Home: React.FC = () => {
   ];
 
   // 根据分类加载帖子
-  const loadPostsForCategory = async (cat: Category) => {
-    setPrevPosts(newPosts);
-    setIsRouteLoading(true);
+  const loadPostsForCategory = useCallback(
+    async (cat: Category) => {
+      // 保存当前列表到 prevPosts
+      setPrevPosts((currentNewPosts) => [...currentNewPosts]);
+      setIsRouteLoading(true);
 
-    // setIsLoading(true);
+      // 模拟API请求延迟
+      await new Promise((resolve) => setTimeout(resolve, 400));
 
-    // 模拟API请求延迟
-    await new Promise((resolve) => setTimeout(resolve, 400));
+      // 使用post.category过滤,推荐分类显示所有帖子
+      const filteredPosts =
+        cat === "recommend"
+          ? mockPosts
+          : mockPosts.filter((post) => post.category === cat);
 
-    // 使用post.category过滤,推荐分类显示所有帖子
-    const filteredPosts =
-      cat === "recommend"
-        ? mockPosts
-        : mockPosts.filter((post) => post.category === cat);
+      setNewPosts(filteredPosts);
+      setIsRouteLoading(false);
+      setIsRouteAnimating(true);
 
-    setNewPosts(filteredPosts);
+      // 模拟等待动画时间
+      await new Promise((resolve) => setTimeout(resolve, 300));
 
-    setIsRouteLoading(false);
-    setIsRouteAnimating(true);
+      // 动画结束
+      setPrevPosts([]);
+      setIsRouteAnimating(false);
+    },
+    [] // 空依赖数组，确保函数稳定
+  );
 
-    // 模拟等待动画时间
-    await new Promise((resolve) => setTimeout(resolve, 300));
-
-    // 动画结束
-    setPrevPosts([]);
-    setIsRouteAnimating(false);
-  };
-
-  const handleButtonClick = (key: Category) => {
-    setSelectedButtonKey(key);
-    navigate(`/${key}`);
-  };
+  // 选中标签切换路由的功能
+  const handleButtonClick = useCallback(
+    (key: Category) => {
+      setSelectedButtonKey(key);
+      // 保留 URL 中的 id 参数
+      if (userId) {
+        navigate(`/${key}?id=${userId}`);
+      } else {
+        navigate(`/${key}`);
+      }
+    },
+    [navigate, userId]
+  );
 
   // 根据按钮分类变化，加载帖子
   useEffect(() => {
-    if (category) {
+    if (category && !isRouteLoading && !isRouteAnimating) {
       loadPostsForCategory(category);
       setSelectedButtonKey(category); // 同步按钮选中状态
     }
-  }, [category]);
+  }, [category, loadPostsForCategory]);
+
+  const fetchMorePosts = useCallback(async () => {
+    if (isLoading || isRouteLoading || isRouteAnimating) return;
+    setIsLoading(true);
+    // 模拟异步请求数据
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // 生成真正的新数据，避免重复
+    const additionalPosts = generateUniquePosts(
+      5,
+      category as Category,
+      [] // 移除对 newPosts 的依赖
+    );
+
+    setNewPosts((prev) => [...prev, ...additionalPosts]);
+    setIsLoading(false);
+  }, [isLoading, isRouteLoading, isRouteAnimating, category]);
 
   useEffect(() => {
-    const fetchMorePosts = async () => {
-      if (isLoading || isRouteLoading || isRouteAnimating) return;
-      setIsLoading(true);
-      // 模拟异步请求数据
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      // 确保新帖子和分类匹配
-      const newPosts: Post[] = mockPosts
-        .filter((post) => !category || post.category === category)
-        .map((post) => ({
-          ...post,
-          id: post.id + Date.now(), // 确保ID唯一
-        }));
-      setNewPosts((prevPosts) => [...prevPosts, ...newPosts]);
-      setIsLoading(false);
-    };
-
-    // 滚动加载更多 接收一个 entries 参数，这是一个包含所有被观察元素的交叉状态信息的数组
+    // 观察器,滚动加载更多
     const handleIntersect: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (
+          entry.isIntersecting &&
+          !isLoading &&
+          !isRouteLoading &&
+          !isRouteAnimating
+        ) {
           fetchMorePosts();
         }
       });
     };
 
+    const observer = new IntersectionObserver(handleIntersect, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    });
+
     if (lastPostRef.current) {
-      observerRef.current = new IntersectionObserver(handleIntersect, {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
-      });
-      observerRef.current.observe(lastPostRef.current);
+      observer.observe(lastPostRef.current);
     }
+    // 保存观察器引用用于清理
+    observerRef.current = observer;
 
     return () => {
-      if (observerRef.current && lastPostRef.current) {
-        observerRef.current.unobserve(lastPostRef.current);
-      }
+      observer.disconnect(); // 完全清理观察器
     };
-  }, [
-    newPosts,
-    prevPosts,
-    isLoading,
-    isRouteAnimating,
-    isRouteLoading,
-    category,
-  ]);
+  }, [fetchMorePosts, isLoading, isRouteLoading, isRouteAnimating]);
 
+  // 用useMemo分类按钮
+  const renderedCategoryButtons = React.useMemo(() => {
+    return categoryButtons.map((btn) => (
+      <button
+        key={btn.key}
+        onClick={() => handleButtonClick(btn.key)}
+        className={`px-4 py-2 rounded-full transition-colors flex-shrink-0 ${
+          selectedButtonKey === btn.key
+            ? "bg-gray text-black font-bold"
+            : "bg-white text-gray4 hover:bg-gray hover:text-black"
+        }`}
+        disabled={isRouteLoading || isRouteAnimating}
+      >
+        {btn.text}
+      </button>
+    ));
+  }, [
+    categoryButtons,
+    handleButtonClick,
+    selectedButtonKey,
+    isRouteLoading,
+    isRouteAnimating,
+  ]);
   return (
-    <div className="container px-4 py-1 w-screen ">
+    <div className="container px-8 py-1 w-full">
       {/*  */}
       {/*  */}
-      <div className="mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+      <div className="mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide -mt-1">
         <div className="inline-flex space-x-2 pb-2">
-          {categoryButtons.map((btn) => (
-            <button
-              key={btn.key}
-              onClick={() => handleButtonClick(btn.key)}
-              className={`px-4 py-2 rounded-full transition-colors flex-shrink-0 ${
-                selectedButtonKey === btn.key
-                  ? "bg-gray text-black font-bold"
-                  : "bg-white text-gray4 hover:bg-gray hover:text-black"
-              }`}
-              disabled={isRouteLoading || isRouteAnimating} // 路由切换时禁用按钮，防止重复点击
-            >
-              {btn.text}
-            </button>
-          ))}
+          {renderedCategoryButtons}
         </div>
       </div>
 
@@ -232,7 +268,6 @@ const Home: React.FC = () => {
         onClose={() => setIsLoginModalOpen(false)}
         onAgreeChange={setIsAgreed}
         isAgreed={isAgreed}
-        onLoginSuccess={handleLoginSuccess} // 传递登录成功回调
       />
       {/*  */}
     </div>
